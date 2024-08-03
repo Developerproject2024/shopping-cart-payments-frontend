@@ -12,8 +12,7 @@
     "format:check": "prettier --check .",
     "test": "standard && jest",
     "test:watch": "standard && jest --watch",
-    "prepare": "husky",
-    "test:staged": "jest --run"
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -43,12 +42,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "vite": "^5.3.4"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "prettier --write --ignore-unknown",
-      "npm run test:staged"
-    ]
   }
 }
