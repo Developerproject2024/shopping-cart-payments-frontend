@@ -9,7 +9,7 @@ const useAxios = (
 ) => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +24,10 @@ const useAxios = (
           ...config
         })
         setData(response.data)
-      } catch (err) {
-        setError(err)
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message)
+        }
       } finally {
         setLoading(false)
       }

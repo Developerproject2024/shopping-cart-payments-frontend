@@ -1,4 +1,3 @@
-import React from 'react'
 import CreditCardModal from '../components/CreditCardModal'
 import SearchForm from '../components/SearchForm '
 

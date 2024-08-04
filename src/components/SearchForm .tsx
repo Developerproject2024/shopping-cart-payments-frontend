@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button, TextInput } from 'flowbite-react'
 
 const SearchForm = () => {
   const [query, setQuery] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // Maneja la búsqueda aquí (por ejemplo, hacer una solicitud a una API)
-    console.log('Buscando:', query)
-  }
+  // const handleSubmit = (event: ChangeEvent<HTMLInputElement>) => {
+  //   event.preventDefault()
+  //   // Maneja la búsqueda aquí (por ejemplo, hacer una solicitud a una API)
+  //   console.log('Buscando:', query)
+  // }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       className="flex space-x-2 justify-end items-center "
     >
       <TextInput

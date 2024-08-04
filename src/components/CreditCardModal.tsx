@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Modal, Button, TextInput, Label } from 'flowbite-react'
 import { FaCcVisa, FaCcMastercard, FaQuestion } from 'react-icons/fa'
 import { Tooltip } from 'flowbite-react'
