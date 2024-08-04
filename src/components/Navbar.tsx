@@ -1,17 +1,26 @@
 import { Dropdown, Navbar } from 'flowbite-react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+export interface Item {
+  id: number
+  name: string
+  href: string
+}
+
+export interface Item1 {
+  itemsNav: {
+    items: Item[]
+  }
+}
 
 const Navigation = () => {
-  const items = [
-    { id: 1, name: 'Productos', href: 'Products' },
-    { id: 2, name: 'Resumen', href: '/' },
-    { id: 3, name: 'Carrito', href: '' }
-  ]
+  const items = useSelector((state: Item1) => state.itemsNav.items)
   return (
     <Navbar fluid rounded className="m-20 md:w-96">
       <Navbar.Brand>
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Productos
+        <span className="text-center self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          Joyeria Cali
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
@@ -22,7 +31,7 @@ const Navigation = () => {
         <Navbar.Link href="#" active>
           Home
         </Navbar.Link>
-        {items.map((item) => (
+        {items.map((item: Item) => (
           <Navbar.Link key={item.id} as={Link} to={item.href}>
             {item.name}
           </Navbar.Link>

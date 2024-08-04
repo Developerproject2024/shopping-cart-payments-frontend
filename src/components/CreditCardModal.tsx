@@ -11,8 +11,17 @@ const CreditCardModal = () => {
 
   return (
     <div>
-      <Button onClick={openModal}>Pagar con tarjeta de crédito</Button>
-      <Modal show={isOpen} onClose={closeModal}>
+      <Button
+        onClick={openModal}
+        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700  focus:outline-none focus:ring-2 focus:ring-blue-900 transition-colors duration-300"
+      >
+        Pagar con tarjeta de crédito
+      </Button>
+      <Modal
+        show={isOpen}
+        onClose={closeModal}
+        className="bg-gray-200 bg-opacity-50"
+      >
         <Modal.Header>Informacion de tarjeta de credito</Modal.Header>
         <Modal.Body>
           <div className="space-y-4">

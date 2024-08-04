@@ -1,7 +1,24 @@
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import { addItmensNav } from './redux/slice/itemsNavSlice'
+
 function App() {
+  const items = [
+    { id: 1, name: 'Productos', href: 'Products' },
+    { id: 2, name: 'Resumen', href: '/' },
+    { id: 3, name: 'Carrito', href: '' }
+  ]
+  const dispatch = useDispatch()
+  dispatch(addItmensNav(items))
+  useEffect(() => {
+    // fetch('https://jsonplaceholder.typicode.com/users/1')
+    //   .then((res) => res.json())
+    //   .then((data) => dispatch(addItmensNav(data)))
+    //   .catch((err) => console.log(err))
+  }, [])
   return (
     <Router>
       <div>
