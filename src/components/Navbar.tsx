@@ -1,14 +1,15 @@
 import { Dropdown, Navbar } from 'flowbite-react'
+import { Link } from 'react-router-dom'
 
 const Navigation = () => {
   const items = [
-    { id: 1, name: 'Productos', href: '' },
-    { id: 2, name: 'Resumen', href: '' },
+    { id: 1, name: 'Productos', href: 'Products' },
+    { id: 2, name: 'Resumen', href: '/' },
     { id: 3, name: 'Carrito', href: '' }
   ]
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com">
+    <Navbar fluid rounded className="m-20 md:w-96">
+      <Navbar.Brand>
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           Productos
         </span>
@@ -17,12 +18,14 @@ const Navigation = () => {
         <Dropdown arrowIcon={false} inline label></Dropdown>
         <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
+      <Navbar.Collapse className="relative ">
         <Navbar.Link href="#" active>
           Home
         </Navbar.Link>
         {items.map((item) => (
-          <Navbar.Link key={item.id}>{item.name}</Navbar.Link>
+          <Navbar.Link key={item.id} as={Link} to={item.href}>
+            {item.name}
+          </Navbar.Link>
         ))}
       </Navbar.Collapse>
     </Navbar>

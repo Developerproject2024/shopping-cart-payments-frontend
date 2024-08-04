@@ -1,15 +1,18 @@
-import Navigation from './components/Navbar'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Products from './pages/Products'
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <main>
-        <h1 className="text-4xl font-bold text-center my-8">
-          Welcome to My App
-        </h1>
-        {/* Other content */}
-      </main>
-    </div>
+    <Router>
+      <div>
+        <Home />
+        <main className="p-4">
+          <Routes>
+            <Route path="/products" element={<Products />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   )
 }
 

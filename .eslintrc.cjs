@@ -14,8 +14,7 @@ module.exports = {
   rules: {
     'prettier/prettier': [
       'error',
-      { trailingComma: 'none' },
-      { semi: 'false' }
+      { endOfLine: 'auto', trailingComma: 'none', semi: false }
     ],
     'react-refresh/only-export-components': [
       'warn',
