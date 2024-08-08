@@ -21,7 +21,7 @@ function DeliveryForm() {
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error: {error}</div>
 
-  const handleDepartmentChange = (e) => {
+  const handleDepartmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedDepartment = e.target.value
     const selectCity = data.countryCities.filter(
       (data) => data.country.countryName == selectedDepartment
@@ -31,7 +31,7 @@ function DeliveryForm() {
     manejarCambio(e)
   }
 
-  const hash = []
+  const hash: [] = []
   const country = data.countryCities.filter((o: any) =>
     hash[o.country.countryId] ? false : (hash[o.country.countryId] = true)
   )

@@ -24,7 +24,6 @@ function App() {
         <Home />
         <main className="p-4">
           <Routes>
-            <Route path="/" element={<Products />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </main>

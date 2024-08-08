@@ -1,5 +1,5 @@
 export interface IProducts {
-  products: Product[]
+  products: IProduct[]
 }
 
 export interface IProduct {

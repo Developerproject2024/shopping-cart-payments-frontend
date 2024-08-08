@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { TextInput, Label } from 'flowbite-react'
 import { FaCcVisa, FaCcMastercard, FaQuestion } from 'react-icons/fa'
 import { Tooltip } from 'flowbite-react'
@@ -27,7 +27,7 @@ const CreditCardForm = () => {
     cardCvv: ''
   })
 
-  const validateCardType = (number) => {
+  const validateCardType = (number: string) => {
     number = number.replace(/\s+/g, '').replace(/-/g, '')
 
     const visaRegex = /^4\d{12,18}$/
@@ -43,14 +43,14 @@ const CreditCardForm = () => {
     }
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setCardNumber(value)
     setCardType(validateCardType(value))
     manejarCambio(e)
   }
 
-  const validarNumeroTarjeta = (cardNumber) => {
+  const validarNumeroTarjeta = (cardNumber: string) => {
     return /^\d{16}$/.test(cardNumber) // 16 dígitos
   }
 
