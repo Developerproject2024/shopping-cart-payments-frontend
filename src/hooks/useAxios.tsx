@@ -9,9 +9,9 @@ const useAxios = (
     }
   }
 ) => {
-  const [data, setData] = useState()
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<unknown>()
+  const [data, setData] = useState<[] | undefined>(undefined)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<Error | undefined>(undefined)
 
   // Usa useCallback para evitar recrear opciones en cada render
   const memoizedOptions = useCallback(() => options, [options])

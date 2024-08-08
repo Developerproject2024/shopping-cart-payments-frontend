@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 export interface Item {
   id: number
   name: string
@@ -16,7 +16,7 @@ export const shoppingSlice = createSlice({
   name: 'shopping',
   initialState,
   reducers: {
-    addItmensShopping: (state, action: PayloadAction<Item[]>) => {
+    addItmensShopping: (state, action) => {
       state.items = action.payload
     }
   }

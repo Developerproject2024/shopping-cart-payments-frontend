@@ -5,13 +5,14 @@ import PaymentsMododal from './PaymentsModal'
 import { addItmensShopping } from '../redux/slice/shoppingSlice'
 import { useState } from 'react'
 import Quantity from './Quantity'
+import { IProduct, IProductShopping } from '../interfaces/products.interface'
 
-const Product: React.FC<any> = ({ data, payment }) => {
+const Product: React.FC<IProductShopping> = ({ data, payment }) => {
   const initialQuantity: number = 1
   const [quantity, setQuantity] = useState(initialQuantity)
   const dispatch = useDispatch()
 
-  const handleButtonClick = (product: any) => {
+  const handleButtonClick = (product: IProduct) => {
     dispatch(addItmensShopping(product))
     openModal()
   }

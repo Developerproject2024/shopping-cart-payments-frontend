@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import useAxios from '../hooks/useAxios'
+import { ICountryCity } from '../interfaces/products.interface'
 
 function DeliveryForm() {
   const [cities, setCities] = useState([])
@@ -21,7 +22,7 @@ function DeliveryForm() {
   const handleDepartmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedDepartment = e.target.value
     const selectCity = data.countryCities.filter(
-      (data) => data.country.countryName == selectedDepartment
+      (data: ICountryCity) => data.country.countryName == selectedDepartment
     )
 
     setCities(selectCity || [])
@@ -29,7 +30,7 @@ function DeliveryForm() {
   }
 
   const hash: [] = []
-  const country = data.countryCities.filter((o: any) =>
+  const country = data.countryCities.filter((o: ICountryCity) =>
     hash[o.country.countryId] ? false : (hash[o.country.countryId] = true)
   )
 
@@ -158,7 +159,7 @@ function DeliveryForm() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             >
               <option value="">Select City</option>
-              {cities.map((city: any) => (
+              {cities.map((city: ICountryCity) => (
                 <option key={city.cityId} value={city.cityId}>
                   {city.cityName}
                 </option>
