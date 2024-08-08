@@ -104,7 +104,6 @@ const CreditCardForm = () => {
             onChange={handleChange}
             // onChange={handleChange}
             placeholder="1234 5678 9012 3456"
-            className={`mt-1 block w-full px-3 py-2 border ${errores.cardNumber ? 'border-red-500' : 'border-gray-300'} border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
             pattern="\d*"
             maxLength={16}
           />
@@ -128,7 +127,6 @@ const CreditCardForm = () => {
             type="text"
             placeholder="John Doe"
             required
-            className={`${errores.cardNumber && cardNumber > '13' ? 'border-red-500' : 'border-gray-300'} `}
           />
         </div>
         <div className="flex gap-4">
