@@ -15,15 +15,8 @@ function App() {
   ]
   const dispatch = useDispatch()
   dispatch(addItmensNav(items))
-  useEffect(() => {
-    console.log('entroooooooooo')
-    // fetch('https://jsonplaceholder.typicode.com/users/1')
-    //   .then((res) => res.json())
-    //   .then((data) => dispatch(addItmensNav(data)))
-    //   .catch((err) => console.log(err))
-  }, [])
 
-  const { data } = useAxios('http://localhost:3000/products')
+  const { data } = useAxios('http://3.147.74.104:3000/products')
   dispatch(addItmensProducts(data))
 
   return (
@@ -32,6 +25,7 @@ function App() {
         <Home />
         <main className="p-4">
           <Routes>
+            <Route path="/" element={<Products />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </main>

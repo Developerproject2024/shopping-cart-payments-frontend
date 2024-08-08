@@ -20,7 +20,7 @@ const Navigation = () => {
     <Navbar fluid rounded className="m-20 md:w-96">
       <Navbar.Brand>
         <span className="text-center self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Joyeria Cali
+          Catalogo Tennis Deportivos
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">

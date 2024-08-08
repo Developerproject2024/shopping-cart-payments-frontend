@@ -1,7 +1,14 @@
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
-const useAxios = (url: string, options = {}) => {
+const useAxios = (
+  url: string,
+  options = {
+    headers: {
+      'api-key': '04204dcf-eaae-4437-b189-c5ec3f2b2153'
+    }
+  }
+) => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)

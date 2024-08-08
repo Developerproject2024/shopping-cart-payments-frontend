@@ -15,7 +15,7 @@ function DeliveryForm() {
   })
 
   const { data, loading, error } = useAxios(
-    'http://localhost:3000/country-cities'
+    'http://3.147.74.104:3000/country-cities'
   )
 
   if (loading) return <div>Loading...</div>
