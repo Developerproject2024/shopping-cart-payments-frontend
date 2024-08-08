@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import { addItmensNav } from './redux/slice/itemsNavSlice'
+import useAxios from './hooks/useAxios'
+import { addItmensProducts } from './redux/slice/productsSlice'
 
 function App() {
   const items = [
@@ -14,11 +16,16 @@ function App() {
   const dispatch = useDispatch()
   dispatch(addItmensNav(items))
   useEffect(() => {
+    console.log('entroooooooooo')
     // fetch('https://jsonplaceholder.typicode.com/users/1')
     //   .then((res) => res.json())
     //   .then((data) => dispatch(addItmensNav(data)))
     //   .catch((err) => console.log(err))
   }, [])
+
+  const { data } = useAxios('http://localhost:3000/products')
+  dispatch(addItmensProducts(data))
+
   return (
     <Router>
       <div>

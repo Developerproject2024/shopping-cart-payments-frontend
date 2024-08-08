@@ -1,40 +1,29 @@
-import { useState, useEffect } from 'react'
-import axiosInstance from '../utils/axiosInstance'
+import { useState, useEffect, useCallback } from 'react'
+import axios from 'axios'
 
-const useAxios = (
-  url: string,
-  method = 'GET',
-  requestData = null,
-  config = {}
-) => {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+const useAxios = (url: string, options = {}) => {
+  const [data, setData] = useState()
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  // Usa useCallback para evitar recrear opciones en cada render
+  const memoizedOptions = useCallback(() => options, [JSON.stringify(options)])
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true)
-      setError(null)
-
       try {
-        const response = await axiosInstance({
-          url,
-          method,
-          data: requestData,
-          ...config
-        })
+        setLoading(true)
+        const response = await axios(url, memoizedOptions())
         setData(response.data)
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message)
-        }
+      } catch (err) {
+        setError(err)
       } finally {
         setLoading(false)
       }
     }
 
     fetchData()
-  }, [url, method, requestData, config])
+  }, [url, memoizedOptions]) // Usa memoizedOptions en las dependencias
 
   return { data, loading, error }
 }
