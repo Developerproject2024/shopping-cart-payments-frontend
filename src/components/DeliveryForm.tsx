@@ -14,12 +14,9 @@ function DeliveryForm() {
     region: ''
   })
 
-  const { data, loading, error } = useAxios(
-    'http://3.147.74.104:3000/country-cities'
-  )
+  const { data, loading } = useAxios('http://3.147.74.104:3000/country-cities')
 
   if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
 
   const handleDepartmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedDepartment = e.target.value

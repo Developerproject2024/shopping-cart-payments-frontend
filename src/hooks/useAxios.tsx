@@ -11,7 +11,7 @@ const useAxios = (
 ) => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<unknown>()
 
   // Usa useCallback para evitar recrear opciones en cada render
   const memoizedOptions = useCallback(() => options, [options])
@@ -22,7 +22,7 @@ const useAxios = (
         setLoading(true)
         const response = await axios(url, memoizedOptions())
         setData(response.data)
-      } catch (err) {
+      } catch (err: unknown) {
         setError(err)
       } finally {
         setLoading(false)

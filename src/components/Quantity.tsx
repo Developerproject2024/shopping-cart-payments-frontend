@@ -1,6 +1,11 @@
 import { useState } from 'react'
 
-const Quantity = ({ stock, OnQuantity }) => {
+interface QuantityProps {
+  stock: number
+  onQuantity: (quantity: number) => void
+}
+
+const Quantity: React.FC<QuantityProps> = ({ stock, OnQuantity }) => {
   const initialQuantity: number = 1
   const min = 1
   const [max, setMax] = useState(stock)
