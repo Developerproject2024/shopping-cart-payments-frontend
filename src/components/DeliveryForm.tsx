@@ -31,7 +31,7 @@ function DeliveryForm() {
     manejarCambio(e)
   }
 
-  let hash = []
+  const hash = []
   const country = data.countryCities.filter((o: any) =>
     hash[o.country.countryId] ? false : (hash[o.country.countryId] = true)
   )

@@ -14,7 +14,7 @@ const useAxios = (
   const [error, setError] = useState(null)
 
   // Usa useCallback para evitar recrear opciones en cada render
-  const memoizedOptions = useCallback(() => options, [JSON.stringify(options)])
+  const memoizedOptions = useCallback(() => options, [options])
 
   useEffect(() => {
     const fetchData = async () => {

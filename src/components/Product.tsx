@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { IProduct } from '../interfaces/products.interface'
+import { useDispatch } from 'react-redux'
 import formatToCOP from '../utils/formatToCOP'
 import { Button } from 'flowbite-react'
 import PaymentsMododal from './PaymentsModal'

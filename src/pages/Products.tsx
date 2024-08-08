@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import SearchForm from '../components/SearchForm '
-import { IProduct, IProducts } from '../interfaces/products.interface'
+import { IProduct } from '../interfaces/products.interface'
 import Product from '../components/Product'
 
 const Products = () => {

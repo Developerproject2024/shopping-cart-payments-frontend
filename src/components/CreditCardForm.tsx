@@ -27,8 +27,6 @@ const CreditCardForm = () => {
     cardCvv: ''
   })
 
-  const [errores, setErrores] = useState<FormErrors>({})
-
   const validateCardType = (number) => {
     number = number.replace(/\s+/g, '').replace(/-/g, '')
 
@@ -65,7 +63,7 @@ const CreditCardForm = () => {
       [name]: value
     }))
     console.log('value====', values)
-    // manejoEroores()
+    manejoEroores()
   }
   const manejoEroores = () => {
     const errores: FormErrors = {}
